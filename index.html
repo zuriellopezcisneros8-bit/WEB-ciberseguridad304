@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZMARTH ORGANIZATION | Ciberseguridad Global</title>
+    <style>
+        /* Paleta de Colores - Luxury Premium (Negro, Beige, Piel, Café) */
+        :root {
+            --bg-dark: #0a0908;       /* Fondo Negro Matte */
+            --bg-panel: #171513;      /* Negro/Café muy oscuro para paneles */
+            --text-beige: #f3e5d8;    /* Beige principal para texto */
+            --accent-skin: #dcb394;   /* Color piel elegante */
+            --accent-brown: #6b4c3a;  /* Café para detalles y botones */
+            --border-color: #3b2f28;  /* Café oscuro para bordes */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-beige);
+            line-height: 1.6;
+        }
+
+        /* Tipografía Premium */
+        h1, h2, h3 {
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--accent-skin);
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--accent-brown);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        p {
+            color: #d1c5b8;
+            font-size: 1.05rem;
+        }
+
+        /* Secciones */
+        section {
+            padding: 60px 10%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 10%;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-panel) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Grid de Teoría (Ahora con 11 tarjetas en total) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: var(--bg-panel);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--accent-brown);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-top: 3px solid var(--accent-skin);
+            background-color: #1f1c1a;
+        }
+
+        .card h3 {
+            color: var(--accent-skin);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Zona Interactiva */
+        .interactive-section {
+            background-color: var(--bg-panel);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .interactive-box {
+            background-color: var(--bg-dark);
+            padding: 35px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-brown);
+        }
+
+        /* Inputs y Botones */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-beige);
+            margin: 15px 0;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--accent-skin);
+        }
+
+        .strength-meter {
+            height: 6px;
+            width: 100%;
+            background-color: var(--border-color);
+            margin-bottom: 10px;
+        }
+
+        .strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: 0.4s ease;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: var(--bg-dark);
+            color: var(--text-beige);
+            border: 1px solid var(--accent-brown);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: var(--accent-brown);
+            color: var(--bg-dark);
+        }
+
+        /* Estilos específicos para Actividad de Relacionar */
+        .match-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .match-item {
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .match-item.selected {
+            background-color: var(--accent-brown);
+            border-color: var(--accent-skin);
+        }
+        .match-item.matched {
+            background-color: #2b3a2b; /* Verde oscuro elegante */
+            border-color: #4a6b4a;
+            cursor: default;
+        }
+
+        /* Estilos específicos para Actividad de Phishing */
+        .email-mockup {
+            background-color: #e8e8e8;
+            color: #333;
+            padding: 20px;
+            border-left: 5px solid #d9534f;
+            font-family: sans-serif;
+            margin: 20px 0;
+        }
+
+        /* Firma / Footer */
+        footer {
+            background-color: var(--bg-dark);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .signature-box {
+            display: inline-block;
+            text-align: left;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-panel);
+            min-width: 300px;
+        }
+
+        .signature-box h3 {
+            color: var(--accent-skin);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+        }
+
+        .team-list {
+            list-style: none;
+        }
+
+        .team-list li {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text-beige);
+            display: flex;
+            align-items: center;
+        }
+
+        .team-list li::before {
+            content: '■';
+            color: var(--accent-brown);
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>THE ZMARTH ORGANIZATION</h1>
+        <p style="font-size: 1.4rem; color: var(--accent-skin); margin-top: 10px;">División de Ciberseguridad Global</p>
+        <p style="margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Protegiendo la infraestructura del mañana mediante protocolos de alta seguridad, análisis heurístico y prevención proactiva de amenazas.
+        </p>
+    </section>
+
+    <!-- Base de Conocimiento (11 Bloques) -->
+    <section id="teoria">
+        <h2 style="text-align: center; color: var(--accent-brown); margin-bottom: 50px;">Base de Conocimiento Operativo</h2>
+        <div class="grid-container">
+            <!-- Bloques Originales Mejorados -->
+            <div class="card">
+                <h3>1. ¿Qué es la Ciberseguridad?</h3>
+                <p>Es el conjunto de tecnologías, procesos y prácticas diseñadas para proteger redes, dispositivos, programas y datos corporativos contra ataques, daños o accesos no autorizados.</p>
+            </div>
+            <div class="card">
+                <h3>2. ¿Qué son los Algoritmos?</h3>
+                <p>Secuencias lógicas de instrucciones matemáticas utilizadas para cifrar información, detectar anomalías en la red y automatizar respuestas ante intrusiones digitales.</p>
+            </div>
+            <div class="card">
+                <h3>3. Protección de la Información</h3>
+                <p>Involucra la confidencialidad, integridad y disponibilidad (Tríada CIA). Se logra mediante copias de seguridad redundantes, control de accesos y encriptación de extremo a extremo.</p>
+            </div>
+            
+            <!-- 8 Bloques Nuevos -->
+            <div class="card">
+                <h3>4. Malware y Ransomware</h3>
+                <p>Software malicioso diseñado para infiltrarse en sistemas. El Ransomware, en específico, secuestra los datos de una empresa y exige un rescate económico (usualmente criptomonedas) para liberarlos.</p>
+            </div>
+            <div class="card">
+                <h3>5. Phishing e Ingeniería Social</h3>
+                <p>Técnicas de manipulación psicológica donde el atacante se hace pasar por una entidad de confianza (bancos, directivos) para engañar a los empleados y robar sus contraseñas.</p>
+            </div>
+            <div class="card">
+                <h3>6. Ataques de Fuerza Bruta</h3>
+                <p>Método en el que un software automatizado intenta adivinar una contraseña probando millones de combinaciones por segundo hasta encontrar la correcta.</p>
+            </div>
+            <div class="card">
+                <h3>7. Ataques DDoS</h3>
+                <p>La Denegación de Servicio Distribuida ocurre cuando miles de computadoras infectadas envían tráfico basura a un servidor al mismo tiempo, colapsándolo y dejándolo fuera de línea.</p>
+            </div>
+            <div class="card">
+                <h3>8. Criptografía Avanzada</h3>
+                <p>Es la técnica de transformar texto legible en un formato incomprensible (cifrado) utilizando llaves matemáticas complejas, asegurando que solo el receptor autorizado pueda leerlo.</p>
+            </div>
+            <div class="card">
+                <h3>9. Autenticación Multifactor (MFA)</h3>
+                <p>Protocolo que exige dos o más métodos de verificación para acceder a una cuenta (por ejemplo: contraseña + un código enviado al teléfono celular del usuario).</p>
+            </div>
+            <div class="card">
+                <h3>10. Firewalls y VPNs</h3>
+                <p>El Firewall actúa como un muro de contención que filtra el tráfico de red. La VPN (Red Privada Virtual) crea un túnel seguro y anónimo para que los datos viajen por internet sin ser interceptados.</p>
+            </div>
+            <div class="card">
+                <h3>11. Hacking Ético (Pentesting)</h3>
+                <p>Consiste en contratar expertos en seguridad para que intenten hackear los sistemas de la propia empresa de forma controlada, con el fin de descubrir y parchar vulnerabilidades antes que los criminales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Interactiva (4 Actividades) -->
+    <section class="interactive-section">
+        <h2 style="text-align: center; color: var(--accent-skin); margin-bottom: 50px; padding-top: 20px;">Centro de Entrenamiento Interactivo</h2>
+
+        <!-- Actividad 1: Contraseñas -->
+        <div class="interactive-box">
+            <h3 style="color: var(--accent-skin);">Actividad 1: Analizador de Contraseñas Seguras</h3>
+            <p>Escribe una contraseña para que nuestro algoritmo evalúe su resistencia estructural.</p>
+            <input type="text" id="password-input" placeholder="Ingresa contraseña...">
+            <div class="strength-meter">
+                <div class="strength-bar" id="strength-bar"></div>
+            </div>
+            <p id="strength-text" style="color: var(--accent-brown); font-weight: bold;">Nivel de Seguridad: 0%</p>
+        </div>
+
+        <!-- Actividad 2: Identificador de Phishing -->
+        <div class="interactive-box">
+            <h3 style="color: var(--accent-skin);">Actividad 2: Identificador de Phishing</h3>
+            <p>Analiza el siguiente correo electrónico que acaba de llegar a la bandeja de entrada corporativa. ¿Es seguro?</p>
+            
+            <div class="email-mockup">
+                <p><strong>De:</strong> security@banco-lnternacional.com (Notar la 'L' minúscula en lugar de 'I')</p>
+                <p><strong>Asunto: URGENTE:</strong> Su cuenta ha sido bloqueada temporalmente.</p>
+                <p style="margin-top: 10px;">Estimado cliente, hemos detectado actividad inusual. Para evitar la suspensión permanente de sus fondos, inicie sesión inmediatamente en el siguiente enlace:</p>
+                <a href="#" style="color: blue; text-decoration: underline;">http://verificacion-banco-seguro24.com/login</a>
+            </div>
+            
+            <button onclick="checkPhishing(true)">Es Phishing (Peligro)</button>
+            <button onclick="checkPhishing(false)">Es Legítimo (Seguro)</button>
+            <p id="phishing-feedback" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+
+        <!-- Actividad 3: Relacionar Conceptos -->
+        <div class="interactive-box">
+            <h3 style="color: var(--accent-skin);">Actividad 3: Relacionar Conceptos</h3>
+            <p>Haz clic en un término de la izquierda y luego en su definición correspondiente a la derecha.</p>
+            <div class="match-grid" id="match-game">
+                <!-- Columna Términos -->
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="match-item term" data-match="1">Malware</div>
+                    <div class="match-item term" data-match="2">Criptografía</div>
+                    <div class="match-item term" data-match="3">Firewall</div>
+                </div>
+                <!-- Columna Definiciones -->
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="match-item def" data-match="3">Sistema que filtra el tráfico de red entrante y saliente.</div>
+                    <div class="match-item def" data-match="1">Software diseñado para dañar o infiltrarse en un dispositivo.</div>
+                    <div class="match-item def" data-match="2">Técnica para cifrar y proteger datos legibles.</div>
+                </div>
+            </div>
+            <p id="match-feedback" style="margin-top: 15px; font-weight: bold; color: var(--accent-skin);"></p>
+        </div>
+
+        <!-- Actividad 4: Quiz -->
+        <div class="interactive-box">
+            <h3 style="color: var(--accent-skin);">Actividad 4: Evaluación de Conocimientos (Quiz)</h3>
+            <p>¿Cuál es la mejor práctica operativa recomendada por The Zmarth Organization para proteger cuentas corporativas?</p>
+            <div style="display: flex; flex-direction: column;">
+                <button class="quiz-btn" onclick="checkQuiz(this, false)">Usar la misma contraseña difícil en todas las plataformas.</button>
+                <button class="quiz-btn" onclick="checkQuiz(this, true)">Implementar Autenticación Multifactor (MFA).</button>
+                <button class="quiz-btn" onclick="checkQuiz(this, false)">Anotar las contraseñas en un documento de Word oculto.</button>
+            </div>
+            <p id="quiz-feedback" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+
+    </section>
+
+    <!-- Firma Estilo Corporativo -->
+    <footer>
+        <div class="signature-box">
+            <h3>PROYECTO DE CIBERSEGURIDAD MÓDULO 2</h3>
+            <p style="margin-bottom: 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-brown);">
+                División Operativa - Integrantes:
+            </p>
+            <ul class="team-list">
+                <li>Zuriel Armando Lopez Cisneros</li>
+                <li>María José Lopez Garcia</li>
+                <li>Iris Yaneli</li>
+                <li>César Yael Lezmus de la Cruz</li>
+                <li>Giovanni Becerra</li>
+                <li>Manuel Pacheco</li>
+                <li>Rosendo</li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Lógica de Actividades -->
+    <script>
+        // --- Actividad 1: Contraseñas ---
+        const passInput = document.getElementById('password-input');
+        const strengthBar = document.getElementById('strength-bar');
+        const strengthText = document.getElementById('strength-text');
+
+        passInput.addEventListener('input', function() {
+            const val = passInput.value;
+            let strength = 0;
+            if (val.length >= 8) strength++;
+            if (/[A-Z]/.test(val)) strength++;
+            if (/[0-9]/.test(val)) strength++;
+            if (/[^A-Za-z0-9]/.test(val)) strength++;
+
+            if(val.length === 0) strength = -1;
+
+            switch(strength) {
+                case -1:
+                    strengthBar.style.width = '0%';
+                    strengthText.textContent = 'Nivel de Seguridad: 0%';
+                    strengthBar.style.backgroundColor = 'var(--border-color)';
+                    break;
+                case 1:
+                    strengthBar.style.width = '25%';
+                    strengthBar.style.backgroundColor = '#8a3a3a';
+                    strengthText.textContent = 'Seguridad: Muy Débil (Riesgo Crítico)';
+                    break;
+                case 2:
+                    strengthBar.style.width = '50%';
+                    strengthBar.style.backgroundColor = 'var(--accent-brown)';
+                    strengthText.textContent = 'Seguridad: Moderada (Requiere Mejoras)';
+                    break;
+                case 3:
+                    strengthBar.style.width = '75%';
+                    strengthBar.style.backgroundColor = 'var(--accent-skin)';
+                    strengthText.textContent = 'Seguridad: Alta (Aceptable)';
+                    break;
+                case 4:
+                    strengthBar.style.width = '100%';
+                    strengthBar.style.backgroundColor = '#a6b8a6'; // Verde sutil
+                    strengthText.textContent = 'Seguridad: Máxima (Estándar Corporativo)';
+                    break;
+            }
+        });
+
+        // --- Actividad 2: Phishing ---
+        function checkPhishing(isPhishing) {
+            const feedback = document.getElementById('phishing-feedback');
+            if(isPhishing) {
+                feedback.textContent = "¡Correcto! Es un ataque. Señales: El dominio falso (lnternacional en vez de Internacional), el sentido de urgencia y el enlace extraño.";
+                feedback.style.color = "#a6b8a6";
+            } else {
+                feedback.textContent = "Error de Protocolo. Este correo es un claro intento de Phishing diseñado para robar credenciales.";
+                feedback.style.color = "#8a3a3a";
+            }
+        }
+
+        // --- Actividad 3: Relacionar Conceptos ---
+        let selectedTerm = null;
+        let matchesFound = 0;
+
+        document.querySelectorAll('.term').forEach(term => {
+            term.addEventListener('click', function() {
+                if(this.classList.contains('matched')) return;
+                // Quitar selección previa
+                document.querySelectorAll('.term').forEach(t => t.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedTerm = this;
+            });
+        });
+
+        document.querySelectorAll('.def').forEach(def => {
+            def.addEventListener('click', function() {
+                if(this.classList.contains('matched') || !selectedTerm) return;
+                
+                if(this.getAttribute('data-match') === selectedTerm.getAttribute('data-match')) {
+                    // Correcto
+                    this.classList.add('matched');
+                    selectedTerm.classList.add('matched');
+                    selectedTerm.classList.remove('selected');
+                    selectedTerm = null;
+                    matchesFound++;
+                    
+                    if(matchesFound === 3) {
+                        document.getElementById('match-feedback').textContent = "¡Excelente! Todos los sistemas teóricos enlazados correctamente.";
+                    }
+                } else {
+                    // Incorrecto
+                    const feedback = document.getElementById('match-feedback');
+                    feedback.textContent = "Conexión incorrecta. Revisa los conceptos e intenta de nuevo.";
+                    feedback.style.color = "#8a3a3a";
+                    setTimeout(() => { feedback.textContent = ""; feedback.style.color = "var(--accent-skin)"; }, 2000);
+                }
+            });
+        });
+
+        // --- Actividad 4: Quiz ---
+        function checkQuiz(btn, isCorrect) {
+            const buttons = document.querySelectorAll('.quiz-btn');
+            buttons.forEach(b => { b.disabled = true; b.style.opacity = '0.5'; });
+            btn.style.opacity = '1';
+            
+            const feedback = document.getElementById('quiz-feedback');
+            if(isCorrect) {
+                btn.style.backgroundColor = '#2b3a2b';
+                feedback.textContent = "Evaluación Aprobada. El MFA añade una capa vital de defensa.";
+                feedback.style.color = "#a6b8a6";
+            } else {
+                btn.style.backgroundColor = '#8a3a3a';
+                feedback.textContent = "Evaluación Fallida. Revisa el protocolo de seguridad corporativa.";
+                feedback.style.color = "#8a3a3a";
+            }
+        }
+    </script>
+</body>
+</html>
