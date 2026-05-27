@@ -179,11 +179,15 @@
         /* Estilos específicos para Actividad de Phishing */
         .email-mockup {
             background-color: #e8e8e8;
-            color: #000000;
             padding: 20px;
             border-left: 5px solid #d9534f;
             font-family: sans-serif;
             margin: 20px 0;
+        }
+        
+        /* ¡AQUÍ ESTÁ LA CORRECCIÓN FORZADA PARA EL TEXTO NEGRO! */
+        .email-mockup p, .email-mockup strong, .email-mockup span {
+            color: #000000 !important;
         }
 
         /* Firma / Footer */
@@ -230,7 +234,6 @@
 </head>
 <body>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1>THE ZMARTH ORGANIZATION</h1>
         <p style="font-size: 1.4rem; color: var(--accent-skin); margin-top: 10px;">División de Ciberseguridad Global</p>
@@ -239,11 +242,9 @@
         </p>
     </section>
 
-    <!-- Base de Conocimiento (11 Bloques) -->
     <section id="teoria">
         <h2 style="text-align: center; color: var(--accent-brown); margin-bottom: 50px;">Base de Conocimiento Operativo</h2>
         <div class="grid-container">
-            <!-- Bloques Originales Mejorados -->
             <div class="card">
                 <h3>1. ¿Qué es la Ciberseguridad?</h3>
                 <p>Es el conjunto de tecnologías, procesos y prácticas diseñadas para proteger redes, dispositivos, programas y datos corporativos contra ataques, daños o accesos no autorizados.</p>
@@ -256,8 +257,6 @@
                 <h3>3. Protección de la Información</h3>
                 <p>Involucra la confidencialidad, integridad y disponibilidad (Tríada CIA). Se logra mediante copias de seguridad redundantes, control de accesos y encriptación de extremo a extremo.</p>
             </div>
-            
-            <!-- 8 Bloques Nuevos -->
             <div class="card">
                 <h3>4. Malware y Ransomware</h3>
                 <p>Software malicioso diseñado para infiltrarse en sistemas. El Ransomware, en específico, secuestra los datos de una empresa y exige un rescate económico (usualmente criptomonedas) para liberarlos.</p>
@@ -293,11 +292,9 @@
         </div>
     </section>
 
-    <!-- Sección Interactiva (4 Actividades) -->
     <section class="interactive-section">
         <h2 style="text-align: center; color: var(--accent-skin); margin-bottom: 50px; padding-top: 20px;">Centro de Entrenamiento Interactivo</h2>
 
-        <!-- Actividad 1: Contraseñas -->
         <div class="interactive-box">
             <h3 style="color: var(--accent-skin);">Actividad 1: Analizador de Contraseñas Seguras</h3>
             <p>Escribe una contraseña para que nuestro algoritmo evalúe su resistencia estructural.</p>
@@ -308,7 +305,6 @@
             <p id="strength-text" style="color: var(--accent-brown); font-weight: bold;">Nivel de Seguridad: 0%</p>
         </div>
 
-        <!-- Actividad 2: Identificador de Phishing -->
         <div class="interactive-box">
             <h3 style="color: var(--accent-skin);">Actividad 2: Identificador de Phishing</h3>
             <p>Analiza el siguiente correo electrónico que acaba de llegar a la bandeja de entrada corporativa. ¿Es seguro?</p>
@@ -317,7 +313,7 @@
                 <p><strong>De:</strong> security@banco-lnternacional.com (Notar la 'L' minúscula en lugar de 'I')</p>
                 <p><strong>Asunto: URGENTE:</strong> Su cuenta ha sido bloqueada temporalmente.</p>
                 <p style="margin-top: 10px;">Estimado cliente, hemos detectado actividad inusual. Para evitar la suspensión permanente de sus fondos, inicie sesión inmediatamente en el siguiente enlace:</p>
-                <a href="#" style="color: blue; text-decoration: underline;">http://verificacion-banco-seguro24.com/login</a>
+                <p><a href="#" style="color: blue !important; text-decoration: underline;">http://verificacion-banco-seguro24.com/login</a></p>
             </div>
             
             <button onclick="checkPhishing(true)">Es Phishing (Peligro)</button>
@@ -325,18 +321,15 @@
             <p id="phishing-feedback" style="margin-top: 15px; font-weight: bold;"></p>
         </div>
 
-        <!-- Actividad 3: Relacionar Conceptos -->
         <div class="interactive-box">
             <h3 style="color: var(--accent-skin);">Actividad 3: Relacionar Conceptos</h3>
             <p>Haz clic en un término de la izquierda y luego en su definición correspondiente a la derecha.</p>
             <div class="match-grid" id="match-game">
-                <!-- Columna Términos -->
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <div class="match-item term" data-match="1">Malware</div>
                     <div class="match-item term" data-match="2">Criptografía</div>
                     <div class="match-item term" data-match="3">Firewall</div>
                 </div>
-                <!-- Columna Definiciones -->
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <div class="match-item def" data-match="3">Sistema que filtra el tráfico de red entrante y saliente.</div>
                     <div class="match-item def" data-match="1">Software diseñado para dañar o infiltrarse en un dispositivo.</div>
@@ -346,7 +339,6 @@
             <p id="match-feedback" style="margin-top: 15px; font-weight: bold; color: var(--accent-skin);"></p>
         </div>
 
-        <!-- Actividad 4: Quiz -->
         <div class="interactive-box">
             <h3 style="color: var(--accent-skin);">Actividad 4: Evaluación de Conocimientos (Quiz)</h3>
             <p>¿Cuál es la mejor práctica operativa recomendada por The Zmarth Organization para proteger cuentas corporativas?</p>
@@ -360,7 +352,6 @@
 
     </section>
 
-    <!-- Firma Estilo Corporativo -->
     <footer>
         <div class="signature-box">
             <h3>PROYECTO DE CIBERSEGURIDAD MÓDULO 2</h3>
@@ -371,7 +362,7 @@
                 <li>Zuriel Armando Lopez Cisneros</li>
                 <li>María José Lopez Garcia</li>
                 <li>Iris Yaneli</li>
-                <li>César Yael Lezmus de la Cruz</li>
+                <li>César Yael</li>
                 <li>Giovanni Becerra</li>
                 <li>Manuel Pacheco</li>
                 <li>Rosendo</li>
@@ -379,7 +370,6 @@
         </div>
     </footer>
 
-    <!-- Lógica de Actividades -->
     <script>
         // --- Actividad 1: Contraseñas ---
         const passInput = document.getElementById('password-input');
@@ -419,7 +409,7 @@
                     break;
                 case 4:
                     strengthBar.style.width = '100%';
-                    strengthBar.style.backgroundColor = '#a6b8a6'; // Verde sutil
+                    strengthBar.style.backgroundColor = '#a6b8a6'; 
                     strengthText.textContent = 'Seguridad: Máxima (Estándar Corporativo)';
                     break;
             }
@@ -444,7 +434,6 @@
         document.querySelectorAll('.term').forEach(term => {
             term.addEventListener('click', function() {
                 if(this.classList.contains('matched')) return;
-                // Quitar selección previa
                 document.querySelectorAll('.term').forEach(t => t.classList.remove('selected'));
                 this.classList.add('selected');
                 selectedTerm = this;
@@ -456,7 +445,6 @@
                 if(this.classList.contains('matched') || !selectedTerm) return;
                 
                 if(this.getAttribute('data-match') === selectedTerm.getAttribute('data-match')) {
-                    // Correcto
                     this.classList.add('matched');
                     selectedTerm.classList.add('matched');
                     selectedTerm.classList.remove('selected');
@@ -467,7 +455,6 @@
                         document.getElementById('match-feedback').textContent = "¡Excelente! Todos los sistemas teóricos enlazados correctamente.";
                     }
                 } else {
-                    // Incorrecto
                     const feedback = document.getElementById('match-feedback');
                     feedback.textContent = "Conexión incorrecta. Revisa los conceptos e intenta de nuevo.";
                     feedback.style.color = "#8a3a3a";
